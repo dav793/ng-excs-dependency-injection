@@ -44,6 +44,15 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "qa": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.qa.ts"
+                }
+              ],
+              "sourceMap": true
             }
           }
         },
@@ -55,6 +64,9 @@
           "configurations": {
             "production": {
               "browserTarget": "ng-excs-dependency-injection:build:production"
+            },
+            "qa": {
+              "browserTarget": "ng-excs-dependency-injection:build:qa"
             }
           }
         },
@@ -67,6 +79,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "fileReplacements": [{
+              "replace": "src/environments/environment.ts",
+              "with": "src/environments/environment.qa.ts"
+            }],
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
